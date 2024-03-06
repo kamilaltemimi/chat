@@ -1,0 +1,51 @@
+
+.content {
+  margin-top: 0px;
+}
+
+.panel-header {
+  background-color: rgb(253, 253, 253);
+}
+
+.panel-content {
+  background-color: rgb(253, 253, 253);
+}
+
+.expansion-panel {
+  background-color: rgb(253, 253, 253);
+  border: none;
+}
+
+.contact-container {
+  display: flex;
+  align-items: center;
+  height: 45px;
+  cursor: pointer;
+}
+
+.contact-container:hover {
+  display: flex;
+  align-items: center;
+  background-color: rgb(234, 234, 234);
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+img {
+  width: 45px;
+  border-radius: 50px;
+}
+
+.contact-name{
+  margin-left: 15px;
+}
+
+.list {
+  max-height: 660px;
+  overflow-y: scroll;
+}
+
+.list1{
+  max-height: 740px;
+  overflow-y: scroll;
+}

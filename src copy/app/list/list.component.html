@@ -1,0 +1,84 @@
+<mat-tab-group>
+  <mat-tab (click)="openClose()" label="Ostatnie"> 
+    <div class="content list1">
+      <mat-expansion-panel class="expansion-panel"
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false">
+        <mat-expansion-panel-header class="panel-header">
+          <mat-panel-title>
+            Ostatnie
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        
+        <mat-list *ngFor="let contact of lastContacts" role="list">
+          <mat-list-item (click)="gatherInfo(contact)" role="listitem">
+
+              <div class="contact-container">
+                  <img src={{contact.avatar}}>
+                  <p class="contact-name">
+                    {{contact.nickname}}
+                  </p>
+              </div>
+
+          </mat-list-item>
+        </mat-list>
+
+      </mat-expansion-panel>
+      <mat-expansion-panel class="expansion-panel"
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false">
+        <mat-expansion-panel-header class="panel-header">
+          <mat-panel-title>
+            Sugerowane
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        
+        <mat-list *ngFor="let contact of suggestedContacts" role="list">
+          <mat-list-item (click)="gatherInfo(contact)" role="listitem">
+
+              <div class="contact-container">
+                  <img src={{contact.avatar}}>
+                  <p class="contact-name">
+                    {{contact.nickname}}
+                  </p>
+              </div>
+              
+          </mat-list-item>
+        </mat-list>
+
+      </mat-expansion-panel>
+    </div> 
+  </mat-tab>
+
+  <mat-tab (click)="openClose()" label="Kontakty"> 
+    <div class="content">
+      <mat-expansion-panel class="expansion-panel"
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false">
+        <mat-expansion-panel-header class="panel-header">
+          <mat-panel-title>
+            Kontakty
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div  class="list">
+        <mat-list *ngFor="let contact of contacts" role="list">
+          <mat-list-item role="listitem">
+
+              <div (click)="gatherInfo(contact)" class="contact-container">
+                  <img src={{contact.avatar}}>
+                  <p class="contact-name">
+                    {{contact.nickname}}
+                  </p>
+              </div>
+              
+          </mat-list-item>
+        </mat-list>
+      </div>
+      </mat-expansion-panel>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+
+
+
+  

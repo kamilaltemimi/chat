@@ -1,0 +1,64 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <div class="container">
+      <div class="chat-header-user">
+        <img src={{avatarData}}>
+        <div class="gap"></div>
+        <p class="contact-name">
+          {{nicknameData}} 
+        </p>
+      </div>
+      <div class="chat-header-icons">
+        <img class="mini-icon" src="assets/video-call.png">
+        <img class="mini-icon" src="assets/audio-call.png">
+        <img class="mini-icon" src="assets/contacts.png">
+        <img class="mini-icon" src="assets/add-contact.png">
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="chat-container">
+
+  <div class="message-container" *ngFor="let message of messages">
+    <div class="my-message-container">
+      <div class="my-message">
+        {{message}}
+      </div>
+    </div>  
+      
+        
+    <div class="reply-container">
+      <div>
+        <img class="reply-avatar" src={{avatarData}}>
+      </div>
+      <div class="reply-message">
+        <div class="reply-nickname">
+          {{nicknameData}}
+        </div>
+          {{replyData}}
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<div class="text-container">
+<input [(ngModel)]="inputValue" (keydown.enter)="displayMessage()" class="text-input" type="text" placeholder="Wpisz nową wiadomość">
+<div class="border-bottom"></div>
+<div class="icons-container">
+  <div>
+    <div class="icons-left-side">
+    <img class="mini-icon" src="assets/attachment-icon.png">
+    <img class="mini-icon" src="assets/emoji-icon.png">
+    <img class="mini-icon" src="assets/gif-icon.png">
+    <img class="mini-icon" src="assets/dots-icon.png">
+  </div>
+  </div>
+  <div>
+    <img class="mini-icon" src="assets/send-message-icon.png">
+  </div>
+</div>
+</div>
