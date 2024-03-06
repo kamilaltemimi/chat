@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class ChatService {
 
-  constructor() { }
-
   chatData: { [id: number]: string[]} = {};
+
+  constructor() { }
 
   addMessage(id: number, message: string){
     if (!this.chatData[id]) {

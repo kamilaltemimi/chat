@@ -7,17 +7,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ReplyService {
-  
-  
 
+  url = 'http://localhost:3000/reply';
+  
   constructor(private http: HttpClient) { }
-
-  url = "http://localhost:3000/reply";
 
   getReply():Observable<string>{
     return this.http.get(this.url, {responseType: 'text'})
   }
 
-  
-  
 }
