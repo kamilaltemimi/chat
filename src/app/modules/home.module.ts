@@ -11,11 +11,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
 import { ChatService } from '../service/chat.service';
 
-
-
-
-
-
 @NgModule({
   declarations: [
     HomeComponent,
