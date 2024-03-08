@@ -1,34 +1,28 @@
-import { ChatService } from './../service/chat.service';
-import { Component, Output, EventEmitter } from '@angular/core';
-import { ListService } from '../service/list.service';
-import { User } from '../models/user';
-import { OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from "@angular/core"
+import { ContactsService } from "src/app/core/contacts/contacts.service"
+import { User } from "src/app/models/user"
+
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class ListComponent implements OnInit {
+export class ListComponent {
 
   @Output() id = new EventEmitter<number>()
   @Output() nickname = new EventEmitter<string>()
   @Output() avatar = new EventEmitter<string>()
 
-  lastContacts = this.listService.lastContacts
-  suggestedContacts = this.listService.suggestedContacts
-  contacts = this.listService.contacts
+  lastContacts = this.contactsService.lastContacts
+  suggestedContacts = this.contactsService.suggestedContacts
+  contacts = this.contactsService.contacts
 
   panelOpenState: boolean = false;
 
   constructor(
-    private listService: ListService,
-    private chatService: ChatService){
+    private contactsService: ContactsService){
     }
-
-  ngOnInit(): void {
-    localStorage.getItem
-  }
 
   openClose(){
     let isOpened;
@@ -44,6 +38,7 @@ export class ListComponent implements OnInit {
     this.nickname.emit(contact.nickname)
     this.avatar.emit(contact.avatar)
     localStorage.getItem(`${contact.id}`)
+    console.log(localStorage.getItem(`${contact.id}`))
     }
     
   }
