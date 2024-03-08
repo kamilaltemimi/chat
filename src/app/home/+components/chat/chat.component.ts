@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { ConversationService } from "src/app/core/conversation/conversation.service";
+import { ConversationService } from "src/app/core/services/conversation/conversation.service";
 
 @Component({
   selector: 'app-chat',

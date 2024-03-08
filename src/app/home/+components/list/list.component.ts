@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from "@angular/core"
-import { ContactsService } from "src/app/core/contacts/contacts.service"
-import { User } from "src/app/models/user"
+import { ContactsService } from "src/app/core/services/contacts/contacts.service"
+import { User } from "src/app/core/models/user"
 
 
 @Component({
