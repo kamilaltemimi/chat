@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from "@angular/core"
-import { ContactsService } from "src/app/core/services/contacts/contacts.service"
+import { ContactsService } from "src/app/core/contacts/contacts.service"
+import { ConversationService } from "src/app/core/conversation/conversation.service"
 import { User } from "src/app/core/models/user"
-
 
 @Component({
   selector: 'app-list',
@@ -21,7 +21,8 @@ export class ListComponent {
   panelOpenState: boolean = false;
 
   constructor(
-    private contactsService: ContactsService){
+    private contactsService: ContactsService,
+    private conversationService: ConversationService){
     }
 
   openClose(){
@@ -37,9 +38,8 @@ export class ListComponent {
     this.id.emit(contact.id)
     this.nickname.emit(contact.nickname)
     this.avatar.emit(contact.avatar)
-    localStorage.getItem(`${contact.id}`)
-    console.log(localStorage.getItem(`${contact.id}`))
-    }
+    console.log(this.conversationService.getConversation(contact.id))
+  }
     
   }
 

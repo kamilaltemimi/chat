@@ -6,6 +6,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [],
@@ -18,6 +19,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatListModule,
     MatCardModule,
     MatTabsModule,
+    ScrollingModule
   ],
 
   exports: [
@@ -26,7 +28,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     FormsModule,
     MatListModule,
     MatCardModule,
-    MatTabsModule,
+    MatTabsModule
   ]
 })
 export class SharedModule { }

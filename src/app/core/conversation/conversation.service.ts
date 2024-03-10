@@ -15,14 +15,18 @@ export class ConversationService {
     private http:HttpClient) { }
 
   addMessage(id: number, message: string){
-    if (!this.chatData[id]) {
-      this.chatData[id] = []
+    const existingMessages = this.getConversation(id);
+    if (!existingMessages) {
+      this.chatData[id] = [message];
+    } else {
+      this.chatData[id] = [...existingMessages, message];
     }
-    this.chatData[id].push(message)
+    localStorage.setItem(`${id}`, JSON.stringify(this.chatData[id]));
   }
 
   getConversation(id: number): string[]{
-    return this.chatData[id] || [];
+    const data = localStorage.getItem(`${id}`);
+    return data ? JSON.parse(data) : [];
   }
 
   getReply():Observable<string>{

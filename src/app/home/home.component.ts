@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   
-  id: number | undefined
+  id: number = 0
   avatarData: string = ''
   nicknameData: string = ''
 
@@ -19,7 +19,7 @@ export class HomeComponent {
     this.nicknameData = nickname
   }
 
-  setIdData(id: number | undefined){
+  setIdData(id: number ){
     this.id = id
   }
 
