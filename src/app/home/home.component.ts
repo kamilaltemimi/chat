@@ -15,7 +15,8 @@ export class HomeComponent {
     this.avatarData = avatar
   }
 
-  setNicknameData(nickname: string){
+  //todo: brakuje typu z returnu metody w tym przypadku bedzei to void bo nie ma go
+  setNicknameData(nickname: string): void {
     this.nicknameData = nickname
   }
 

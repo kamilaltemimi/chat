@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ContactsService {
   
-
+  //todo: stworz i dodaj typ dla contacts
   contacts: any[] =[
   {
     id: 1,

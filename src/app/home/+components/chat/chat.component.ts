@@ -7,7 +7,7 @@ import { ConversationService } from "src/app/core/conversation/conversation.serv
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent {
-  
+  //todo: podobnie jak w list.component tutaj to wszystko mozesz zastapic obiektem User ktory bnedzie zwracany z listComponent i obslugiwany tutaj
   @Input()
   id!: number;
   @Input()
@@ -31,6 +31,8 @@ export class ChatComponent {
   }
   
   reply(){
+    //todo: tutaj mozna dodac typ dla data
+    // this.conversationService.getReply().subscribe((data: jakistyp) => this.replyData = data)
     this.conversationService.getReply().subscribe(data => this.replyData = data)
   }
 

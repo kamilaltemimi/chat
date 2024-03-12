@@ -14,6 +14,7 @@ export class ConversationService {
   constructor(
     private http:HttpClient) { }
 
+  //todo: brakuje typu
   addMessage(id: number, message: string){
     const existingMessages = this.getConversation(id);
     if (!existingMessages) {

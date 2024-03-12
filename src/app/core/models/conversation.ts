@@ -3,3 +3,4 @@ export interface Conversation {
   message: string,
   reply: string,
 }
+//todo: to nie jest nigdzie uzywane co jest nieuzywane do wywalenia
