@@ -11,26 +11,37 @@ export class ListComponent {
   
   @Output() contact = new EventEmitter<User>()
 
-  lastContacts = this.contactsService.lastContacts
-  suggestedContacts = this.contactsService.suggestedContacts
-  contacts = this.contactsService.contacts
+  lastContacts: User[] = []
+  suggestedContacts: User[] = []
+  contacts: User[] = []
 
   panelOpenState: boolean = false;
 
   constructor(
     private contactsService: ContactsService){
+      this.getContacts()
+      this.getLastContacts()
+      this.getSuggestedContacts()
     }
 
   toggleTab(){
-    if (this.panelOpenState) {
-      this.panelOpenState = false
-    } else {
-      this.panelOpenState = true
-    } return this.panelOpenState
+    this.panelOpenState = !this.panelOpenState
   }
 
   gatherInfo(contact: User): void {
     this.contact.emit(contact)
+  }
+
+  getContacts(){
+    this.contactsService.getContacts().subscribe((data: User[]) => this.contacts = data)
+  }
+
+  getLastContacts(){
+    this.contactsService.getLastContacts().subscribe((data: User[]) => this.lastContacts = data)
+  }
+
+  getSuggestedContacts(){
+    this.contactsService.getSuggestedContacts().subscribe((data: User[]) => this.suggestedContacts = data)
   }
     
 }

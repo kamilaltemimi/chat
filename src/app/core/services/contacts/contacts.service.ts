@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { User } from '../../models/user';
 
 @Injectable({
@@ -6,185 +8,25 @@ import { User } from '../../models/user';
 })
 export class ContactsService {
   
-  contacts: User[] =[
-  {
-    id: 1,
-    avatar: "assets/avatar1.jpeg",
-    nickname: "miketyson_2003"
-  },
-  {
-    id: 2,
-    avatar: "assets/avatar2.jpeg",
-    nickname: "andrzej_kowalski1"
-  },
-  {
-    id: 3,
-    avatar: "assets/avatar3.jpeg",
-    nickname: "qwerty1234567"
-  },
-  {
-    id: 4,
-    avatar: "assets/avatar4.jpeg",
-    nickname: "Joanna Joanna"
-  },
-  {
-    id: 1,
-    avatar: "assets/avatar1.jpeg",
-    nickname: "miketyson_2003"
-  },
-  {
-    id: 2,
-    avatar: "assets/avatar2.jpeg",
-    nickname: "andrzej_kowalski1"
-  },
-  {
-    id: 3,
-    avatar: "assets/avatar3.jpeg",
-    nickname: "qwerty1234567"
-  },
-  {
-    id: 4,
-    avatar: "assets/avatar4.jpeg",
-    nickname: "Joanna Joanna"
-  },
-  {
-    id: 1,
-    avatar: "assets/avatar1.jpeg",
-    nickname: "miketyson_2003"
-  },
-  {
-    id: 2,
-    avatar: "assets/avatar2.jpeg",
-    nickname: "andrzej_kowalski1"
-  },
-  {
-    id: 3,
-    avatar: "assets/avatar3.jpeg",
-    nickname: "qwerty1234567"
-  },
-  {
-    id: 4,
-    avatar: "assets/avatar4.jpeg",
-    nickname: "Joanna Joanna"
-  },
-  {
-    id: 1,
-    avatar: "assets/avatar1.jpeg",
-    nickname: "miketyson_2003"
-  },
-  {
-    id: 2,
-    avatar: "assets/avatar2.jpeg",
-    nickname: "andrzej_kowalski1"
-  },
-  {
-    id: 3,
-    avatar: "assets/avatar3.jpeg",
-    nickname: "qwerty1234567"
-  },
-  {
-    id: 4,
-    avatar: "assets/avatar4.jpeg",
-    nickname: "Joanna Joanna"
+  contactsUrl = "http://localhost:3001/contacts";
+  lastContactsUrl = "http://localhost:3001/lastContacts";
+  suggestedContactsUrl = "http://localhost:3001/suggestedContacts";
+
+  constructor(
+    private http: HttpClient){
   }
-  ]
 
-  lastContacts: User[] = [
-    {
-      id: 1,
-      avatar: "assets/avatar1.jpeg",
-      nickname: "miketyson_2003"
-    },
-    {
-      id: 3,
-      avatar: "assets/avatar3.jpeg",
-      nickname: "qwerty1234567"
-    },
-    {
-      id: 4,
-      avatar: "assets/avatar4.jpeg",
-      nickname: "Joanna Joanna"
-    },
-    {
-      id: 1,
-      avatar: "assets/avatar1.jpeg",
-      nickname: "miketyson_2003"
-    },
-    {
-      id: 2,
-      avatar: "assets/avatar2.jpeg",
-      nickname: "andrzej_kowalski1"
-    },
-    {
-      id: 3,
-      avatar: "assets/avatar3.jpeg",
-      nickname: "qwerty1234567"
-    },
-    {
-      id: 4,
-      avatar: "assets/avatar4.jpeg",
-      nickname: "Joanna Joanna"
-    },
-    {
-      id: 1,
-      avatar: "assets/avatar1.jpeg",
-      nickname: "miketyson_2003"
-    }
-  ]
+  getContacts(): Observable<User[]>{
+    return this.http.get<User[]>(this.contactsUrl);
+  }
 
-  suggestedContacts: User[] = [
-    {
-      id: 2,
-      avatar: "assets/avatar2.jpeg",
-      nickname: "andrzej_kowalski1"
-    },
-    {
-      id: 3,
-      avatar: "assets/avatar3.jpeg",
-      nickname: "qwerty1234567"
-    },
-    {
-      id: 4,
-      avatar: "assets/avatar4.jpeg",
-      nickname: "Joanna Joanna"
-    },
-    {
-      id: 3,
-      avatar: "assets/avatar3.jpeg",
-      nickname: "qwerty1234567"
-    },
-    {
-      id: 4,
-      avatar: "assets/avatar4.jpeg",
-      nickname: "Joanna Joanna"
-    },
-    {
-      id: 1,
-      avatar: "assets/avatar1.jpeg",
-      nickname: "miketyson_2003"
-    },
-    {
-      id: 2,
-      avatar: "assets/avatar2.jpeg",
-      nickname: "andrzej_kowalski1"
-    },
-    {
-      id: 3,
-      avatar: "assets/avatar3.jpeg",
-      nickname: "qwerty1234567"
-    },
-    {
-      id: 4,
-      avatar: "assets/avatar4.jpeg",
-      nickname: "Joanna Joanna"
-    },
-    {
-      id: 1,
-      avatar: "assets/avatar1.jpeg",
-      nickname: "miketyson_2003"
-    }
-  ]
+  getLastContacts(): Observable<User[]>{
+    return this.http.get<User[]>(this.lastContactsUrl)
+  }
 
+  getSuggestedContacts(): Observable<User[]>{
+    return this.http.get<User[]>(this.suggestedContactsUrl)
+  }
 
 }
 
