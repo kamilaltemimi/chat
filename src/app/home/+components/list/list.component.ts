@@ -24,7 +24,7 @@ export class ListComponent {
       this.getSuggestedContacts()
     }
 
-  toggleTab(){
+  toggleTab(): void{
     this.panelOpenState = !this.panelOpenState
   }
 
@@ -32,15 +32,15 @@ export class ListComponent {
     this.contact.emit(contact)
   }
 
-  getContacts(){
+  getContacts(): void {
     this.contactsService.getContacts().subscribe((data: User[]) => this.contacts = data)
   }
 
-  getLastContacts(){
+  getLastContacts(): void {
     this.contactsService.getLastContacts().subscribe((data: User[]) => this.lastContacts = data)
   }
 
-  getSuggestedContacts(){
+  getSuggestedContacts(): void {
     this.contactsService.getSuggestedContacts().subscribe((data: User[]) => this.suggestedContacts = data)
   }
     
