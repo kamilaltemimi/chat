@@ -1,5 +1,6 @@
 import { Component, Input } from "@angular/core";
-import { ConversationService } from "src/app/core/conversation/conversation.service";
+import { User } from "src/app/core/models/user";
+import { ConversationService } from "src/app/core/services/conversation/conversation.service";
 
 @Component({
   selector: 'app-chat',
@@ -7,13 +8,9 @@ import { ConversationService } from "src/app/core/conversation/conversation.serv
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent {
-  //todo: podobnie jak w list.component tutaj to wszystko mozesz zastapic obiektem User ktory bnedzie zwracany z listComponent i obslugiwany tutaj
+
   @Input()
-  id!: number;
-  @Input()
-  avatarData: string | undefined;
-  @Input()
-  nicknameData: string | undefined;
+  contactData: User | undefined;
 
   messages: string[] = []
   inputValue: string = ''
@@ -24,29 +21,25 @@ export class ChatComponent {
     ){}
   
   ngOnChanges(): void {
-    if (this.id) {
-      this.messages = this.conversationService.getConversation(this.id)
+    if (this.contactData) {
+      this.messages = this.conversationService.getConversation(this.contactData.id)
     }
     this.reply()
   }
   
   reply(){
-    //todo: tutaj mozna dodac typ dla data
-    // this.conversationService.getReply().subscribe((data: jakistyp) => this.replyData = data)
-    this.conversationService.getReply().subscribe(data => this.replyData = data)
+    this.conversationService.getReply().subscribe((data: string) => this.replyData = data)
   }
 
   displayMessage(){
     this.reply()
-    if (this.id){
-      this.conversationService.addMessage(this.id, this.inputValue)
-      this.messages = this.conversationService.chatData[this.id]
+    if (this.contactData){
+      this.conversationService.addMessage(this.contactData.id, this.inputValue)
+      this.messages = this.conversationService.chatData[this.contactData.id]
       this.inputValue = ''
       }
     }
 
-  
-  
 }
 
 

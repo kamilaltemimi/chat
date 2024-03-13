@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from '../core/models/user';
 
 @Component({
   selector: 'app-home',
@@ -7,21 +8,10 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   
-  id: number = 0
-  avatarData: string = ''
-  nicknameData: string = ''
+  contactData: User | undefined 
 
-  setAvatarData(avatar: string){
-    this.avatarData = avatar
-  }
-
-  //todo: brakuje typu z returnu metody w tym przypadku bedzei to void bo nie ma go
-  setNicknameData(nickname: string): void {
-    this.nicknameData = nickname
-  }
-
-  setIdData(id: number ){
-    this.id = id
+  setContactData(contact: User): void {
+    this.contactData = contact
   }
 
 }

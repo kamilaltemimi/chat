@@ -2,17 +2,14 @@
 
 <div class="container-left">
   <app-list
-  (nickname)="setNicknameData($event)"
-  (avatar)="setAvatarData($event)"
-  (id)="setIdData($event)">
+  (contact)="setContactData($event)"
+  >
   </app-list>
 </div>
 
 <div class="container-right">
   <app-chat 
-    [avatarData]="avatarData" 
-    [nicknameData]="nicknameData"
-    [id]="id"
+    [contactData]="contactData"
     >
   </app-chat>
 </div>

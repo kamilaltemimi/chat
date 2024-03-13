@@ -2,10 +2,10 @@
   <mat-toolbar-row>
     <div class="container">
       <div class="chat-header-user">
-        <img src={{avatarData}}>
+        <img src={{contactData?.avatar}}>
         <div class="gap"></div>
         <p class="contact-name">
-          {{nicknameData}} 
+          {{contactData?.nickname}} 
         </p>
       </div>
       <div class="chat-header-icons">
@@ -30,11 +30,11 @@
         
     <div class="reply-container">
       <div>
-        <img class="reply-avatar" src={{avatarData}}>
+        <img class="reply-avatar" src={{contactData?.avatar}}>
       </div>
       <div class="reply-message">
         <div class="reply-nickname">
-          {{nicknameData}}
+          {{contactData?.nickname}}
         </div>
           {{replyData}}
       </div>

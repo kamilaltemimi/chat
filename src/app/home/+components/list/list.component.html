@@ -1,5 +1,5 @@
 <mat-tab-group>
-  <mat-tab (click)="openClose()" label="Ostatnie"> 
+  <mat-tab (click)="toggleTab()" label="Ostatnie"> 
     <div class="content list1">
       <mat-expansion-panel class="expansion-panel"
         (opened)="panelOpenState = true"
@@ -50,7 +50,7 @@
     </div> 
   </mat-tab>
 
-  <mat-tab (click)="openClose()" label="Kontakty"> 
+  <mat-tab (click)="toggleTab()" label="Kontakty"> 
     <div class="content">
       <mat-expansion-panel class="expansion-panel"
         (opened)="panelOpenState = true"

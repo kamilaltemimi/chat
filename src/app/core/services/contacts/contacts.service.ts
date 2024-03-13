@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
+import { User } from '../../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactsService {
   
-  //todo: stworz i dodaj typ dla contacts
-  contacts: any[] =[
+  contacts: User[] =[
   {
     id: 1,
     avatar: "assets/avatar1.jpeg",
@@ -89,7 +89,7 @@ export class ContactsService {
   }
   ]
 
-  lastContacts: any[] = [
+  lastContacts: User[] = [
     {
       id: 1,
       avatar: "assets/avatar1.jpeg",
@@ -132,7 +132,7 @@ export class ContactsService {
     }
   ]
 
-  suggestedContacts: any[] = [
+  suggestedContacts: User[] = [
     {
       id: 2,
       avatar: "assets/avatar2.jpeg",

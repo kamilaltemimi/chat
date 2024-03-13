@@ -12,10 +12,9 @@ export class ConversationService {
   chatData: { [id: number]: string[]} = {};
 
   constructor(
-    private http:HttpClient) { }
+    private http: HttpClient) { }
 
-  //todo: brakuje typu
-  addMessage(id: number, message: string){
+  addMessage(id: number, message: string): void {
     const existingMessages = this.getConversation(id);
     if (!existingMessages) {
       this.chatData[id] = [message];
