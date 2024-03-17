@@ -2,14 +2,14 @@
 
 <div class="container-left">
   <app-list
-  (contact)="setContactData($event)"
+  (onContactChange)="setContactData($event)"
   >
   </app-list>
 </div>
 
 <div class="container-right">
   <app-chat 
-    [contactData]="contactData"
+    [contactData]="selectedContactData"
     >
   </app-chat>
 </div>

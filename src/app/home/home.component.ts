@@ -7,11 +7,11 @@ import { User } from '../core/models/user';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  // z racji tego ze to jest aktywna osoba z chata to activeContactData, selectedContact, selectedUser, activeUser
-  contactData: User | undefined 
+
+  selectedContactData: User | undefined 
 
   setContactData(contact: User): void {
-    this.contactData = contact
+    this.selectedContactData = contact
   }
 
 }
