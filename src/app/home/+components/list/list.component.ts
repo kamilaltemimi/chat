@@ -8,7 +8,7 @@ import { User } from "src/app/core/models/user"
   styleUrls: ['./list.component.css']
 })
 export class ListComponent {
-  
+  //todo: Output powinien byc czasownikiem ktory obluguje jakies zdarzenie wiec tutaj np ja bym nazwal onContactChange, onActiveContactChange, contactSelection, userChange cos w ten desen
   @Output() contact = new EventEmitter<User>()
 
   lastContacts: User[] = []
@@ -18,11 +18,16 @@ export class ListComponent {
   panelOpenState: boolean = false;
 
   constructor(
-    private contactsService: ContactsService){
-      this.getContacts()
-      this.getLastContacts()
-      this.getSuggestedContacts()
-    }
+    private contactsService: ContactsService,
+  ){
+    //todo: generalnie ladnie to wyglada jedyna uwaga do ogolnej struktury. Chcesz miec prawie zawsze parent component ktory bedzie zjamowal sie sciaganiem, zapisywaniem zmian i rozne inne operacje powinien brac na siebie w twoim przypadku jest to home.component i w nim powinines miec wsyzstkiego rodzaju operacje jak sciaganie danych i ich zapisywanie a child componenty (list i chat) powinny byc dumb componentami czyli powinny przyjmowac wartosci w Inputach i emitowac output eventy
+    // Wiec jeli chodzi o ten przyklad tutaj to dla zmiennych lastContacts, suggested i contacts powinny zostac porobione Inputy dla nich i w homecomponentcie powinienes je sciagac
+    // To prosta zmiana ale niesie za soba wiele prostszych rozwiazan do implementacji z ktorymi w przypadku takiej implementacji mialbys problemy
+    // Przyklad: Edytujesz jakis contact i musisz odswiezyc liste wtedy robi sie problem bo jak component list.component mialby poinformowac chat.component zeby sie przerenderowal? Natomiast majac wsztystkie dane w home.component nadpiszesz sobie tablice contacts nowymi wartoscami i te komponenty dzieci (list i chat) sie rerenderuja same a normalnie mialbys skomplikowana logike zeby to osbluzyc
+    this.getContacts()
+    this.getLastContacts()
+    this.getSuggestedContacts()
+  }
 
   toggleTab(): void{
     this.panelOpenState = !this.panelOpenState
